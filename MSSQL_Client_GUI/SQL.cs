@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * **********************************
+ * Autor: Sebastian Danninger       *
+ * Projektbeginn: WS 08/09          *
+ * Codingbeginn: 04/12/2008         *
+ * Copyright: Sebastian Danninger   *
+ * **********************************
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
