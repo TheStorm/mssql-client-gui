@@ -36,6 +36,7 @@
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSELECT = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label_IP
@@ -112,11 +113,25 @@
             this.btnSELECT.UseVisualStyleBackColor = true;
             this.btnSELECT.Click += new System.EventHandler(this.button1_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(483, 418);
+            this.progressBar1.Maximum = 15;
+            this.progressBar1.Minimum = 1;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(146, 26);
+            this.progressBar1.Step = 1;
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 8;
+            this.progressBar1.Value = 1;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 456);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnSELECT);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnDisconnect);
@@ -142,6 +157,7 @@
         private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSELECT;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

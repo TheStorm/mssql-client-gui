@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace MSSQL_Client_GUI
 {
@@ -27,8 +28,30 @@ namespace MSSQL_Client_GUI
             SQL.Disconnect(tb_IP.Text, tb_Port.Text);
         }
 
+        private void Timer()
+        {
+            TimerCallback time = new TimerCallback(MyProcedure);
+            System.Threading.Timer stateTimer = new System.Threading.Timer(time, null, 1000, 1000);
+        }
+
+        private void MyProcedure(object state)
+        {
+            progressBar1.PerformStep();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            progressBar1.Minimum = 1;
+            progressBar1.Maximum = 15;
+            progressBar1.Step = 1;
+            //Initialisierun 2 Threads (einer Progressbar, einer Connect)
+            ThreadStart del = new ThreadStart(Timer);
+            Thread myFirstThread = new Thread(del);
+
+            // den zweiten Thread starten 
+            myFirstThread.Start();
+
+
             string connstring = tb_IP.Text + "," + tb_Port.Text;
             SqlConnectionStringBuilder sqlbuilder = new SqlConnectionStringBuilder();
             sqlbuilder.DataSource = connstring;
@@ -66,6 +89,11 @@ namespace MSSQL_Client_GUI
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
         {
 
         } 
